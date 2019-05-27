@@ -31,22 +31,21 @@ namespace Nudes.Pedreizor.RazorRenderer
             var actionContext = GetEmptyActionContext();
             var view = FindView(actionContext, viewPath);
 
-            using (var output = new StringWriter())
+            using (var writer = new StringWriter())
             {
-                var viewContext = new ViewContext(
-                    actionContext,
-                    view,
-                    new ViewDataDictionary<TModel>(metadataProvider: new EmptyModelMetadataProvider(), modelState: new ModelStateDictionary())
+                var viewContext = new ViewContext(actionContext: actionContext,
+                    view: view,
+                    viewData: new ViewDataDictionary<TModel>(metadataProvider: new EmptyModelMetadataProvider(), modelState: new ModelStateDictionary())
                     {
                         Model = model
                     },
-                new TempDataDictionary(actionContext.HttpContext, tempDataProvider),
-                output,
-                new HtmlHelperOptions());
+                tempData: new TempDataDictionary(actionContext.HttpContext, tempDataProvider),
+                writer: writer,
+                htmlHelperOptions: new HtmlHelperOptions());
 
                 await view.RenderAsync(viewContext);
 
-                return output.ToString();
+                return writer.ToString();
             }
         }
 
@@ -77,13 +76,18 @@ namespace Nudes.Pedreizor.RazorRenderer
             var actionContext = GetEmptyActionContext();
             var view = FindView(actionContext, viewPath);
 
-            using (var output = new StringWriter())
+            using (var writer = new StringWriter())
             {
-                var viewContext = new ViewContext(actionContext, view, null, null, output, new HtmlHelperOptions()); //test this shit
+                var viewContext = new ViewContext(actionContext: actionContext,
+                    view: view,
+                    viewData: new ViewDataDictionary(new EmptyModelMetadataProvider(), new ModelStateDictionary()),
+                    tempData: new TempDataDictionary(actionContext.HttpContext, tempDataProvider),
+                    writer: writer,
+                    htmlHelperOptions: new HtmlHelperOptions());
 
                 await view.RenderAsync(viewContext);
 
-                return output.ToString();
+                return writer.ToString();
             }
         }
     }
