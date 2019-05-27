@@ -1,0 +1,16 @@
+﻿@using PocApi.Controllers;
+@model TestModel;
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    @for (int i = 0; i < 100; i++)
+    {
+        <h1 style="color: red;">Hello World</h1>
+        <p>@Model.Name @i</p>
+    }
+
+</body>
+</html>

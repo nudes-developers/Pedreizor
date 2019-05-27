@@ -1,0 +1,37 @@
+﻿{
+  "profiles": {
+    "Production": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      },
+      "applicationUrl": "http://0.0.0.0:5000/"
+    },
+    "Development": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://0.0.0.0:5000/"
+    },
+    "LocalDevelopment": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "LocalDevelopment"
+      },
+      "applicationUrl": "http://0.0.0.0:80/"
+    },
+    "Seed": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "commandLineArgs": "seed",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://0.0.0.0:80/"
+    }
+  }
+}
