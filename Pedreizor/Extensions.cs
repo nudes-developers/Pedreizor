@@ -9,14 +9,25 @@ namespace Nudes.Pedreizor
 {
     public static class PedreizorExtensions
     {
-        public static void AddRazorRender(this IMvcCoreBuilder builder) => builder
+        /// <summary>
+        /// Add Razor renderer transient instance for dependency injection
+        /// </summary>
+        /// <param name="builder">Instance of IMvcCoreBuilder</param>
+        public static void AddRazorRenderer(this IMvcCoreBuilder builder) => builder
             .Services
             .AddTransient<IRazorRenderer, RazorRenderer.RazorRenderer>();
 
-        public static void AddRazorRender(this IMvcBuilder builder) => builder
+        /// <summary>
+        /// Add Razor renderer transient instance for dependency injection
+        /// </summary>
+        /// <param name="builder">Instance of IMvcBuilder</param>
+        public static void AddRazorRenderer(this IMvcBuilder builder) => builder
             .Services
             .AddTransient<IRazorRenderer, RazorRenderer.RazorRenderer>();
 
+        /// <summary>
+        /// Load unmanaged library for current operational system to use tools to create pdf files
+        /// </summary>
         public static void LoadWebkitLibrary()
         {
             var size = IntPtr.Size == 4 ? "x86" : "x64";

@@ -20,10 +20,10 @@ namespace Nudes.Pedreizor
             this.razorRenderer = razorRenderer;
         }
 
-        public string Title { get; set; }
-        public Paper Paper { get; set; }
-        public bool PageCounterVisible { get; set; }
-        public PageNumberPosition PageCounterPosition { get; set; }
+        public virtual string Title { get; set; }
+        public virtual Paper Paper { get; set; }
+        public virtual bool PageCounterVisible { get; set; }
+        public virtual PageNumberPosition PageCounterPosition { get; set; }
 
         public async Task<Stream> Pdfy(string htmlContent)
         {
