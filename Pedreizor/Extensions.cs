@@ -1,11 +1,11 @@
-﻿using Pedreizor.Internal;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Nudes.Pedreizor.Internal;
+using Nudes.Pedreizor.RazorRenderer;
 using System;
 using System.IO;
 using System.Reflection;
-using Microsoft.Extensions.DependencyInjection;
-using Pedreizor.RazorRenderer;
 
-namespace Pedreizor
+namespace Nudes.Pedreizor
 {
     public static class PedreizorExtensions
     {

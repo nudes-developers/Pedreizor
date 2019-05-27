@@ -11,7 +11,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Pedreizor.RazorRenderer
+namespace Nudes.Pedreizor.RazorRenderer
 {
     public class RazorRenderer : IRazorRenderer
     {

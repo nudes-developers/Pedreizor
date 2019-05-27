@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.ViewEngines;
 using System;
 using System.Threading.Tasks;
 
-namespace Pedreizor.RazorRenderer
+namespace Nudes.Pedreizor.RazorRenderer
 {
     public interface IRazorRenderer
     {

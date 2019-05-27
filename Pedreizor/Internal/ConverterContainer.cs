@@ -2,7 +2,7 @@
 using DinkToPdf.Contracts;
 using System;
 
-namespace Pedreizor.Internal
+namespace Nudes.Pedreizor.Internal
 {
     public sealed class ConverterContainer
     {

@@ -1,9 +1,9 @@
-﻿using Pedreizor.Configuration;
+﻿using Nudes.Pedreizor.Configuration;
 using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Pedreizor
+namespace Nudes.Pedreizor
 {
     public interface IPedreizor
     {

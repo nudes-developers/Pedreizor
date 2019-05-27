@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Runtime.Loader;
 
-namespace Pedreizor.Internal
+namespace Nudes.Pedreizor.Internal
 {
     internal class CustomAssemblyLoadContext : AssemblyLoadContext
     {

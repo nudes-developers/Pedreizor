@@ -1,4 +1,4 @@
-﻿namespace Pedreizor.Configuration
+﻿namespace Nudes.Pedreizor.Configuration
 {
     public struct Paper
     {

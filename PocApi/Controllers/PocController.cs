@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Pedreizor;
-using Pedreizor.Configuration;
-using Pedreizor.RazorRenderer;
+using Nudes.Pedreizor;
+using Nudes.Pedreizor.Configuration;
+using Nudes.Pedreizor.RazorRenderer;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -16,14 +16,14 @@ namespace PocApi.Controllers
 
         public PocController(IRazorRenderer razorRenderer)
         {
-            this.pedreizor = new Pedreizor.Pedreizor(razorRenderer)
+            this.pedreizor = new Pedreizor(razorRenderer)
             {
                 Title = "Title",
                 Paper = PapersType.A4Landscape,
                 PageCounterVisible = true,
                 PageCounterPosition = PageNumberPosition.Center
             };
-            this.pedreizor2 = new Pedreizor.Pedreizor(razorRenderer)
+            this.pedreizor2 = new Pedreizor(razorRenderer)
             {
                 Title = "Title",
                 Paper = PapersType.A4,
@@ -38,7 +38,7 @@ namespace PocApi.Controllers
 
             await pedreizor.PdfyTo(new Uri("/Controllers/Index.cshtml", UriKind.Relative), mem, new TestModel
             {
-                Name = "Anderson"
+                Name = "Teste GET 1"
             });
             
             return new FileContentResult(mem.ToArray(), "application/pdf");
@@ -51,7 +51,7 @@ namespace PocApi.Controllers
 
             await pedreizor2.PdfyTo(new Uri("/Controllers/Index.cshtml", UriKind.Relative), mem, new TestModel
             {
-                Name = "Anderson 11"
+                Name = "Teste GET 2"
             });
 
             return new FileContentResult(mem.ToArray(), "application/pdf");

@@ -1,13 +1,13 @@
 ﻿using DinkToPdf;
 using DinkToPdf.Contracts;
-using Pedreizor.Configuration;
-using Pedreizor.Internal;
-using Pedreizor.RazorRenderer;
+using Nudes.Pedreizor.Configuration;
+using Nudes.Pedreizor.Internal;
+using Nudes.Pedreizor.RazorRenderer;
 using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Pedreizor
+namespace Nudes.Pedreizor
 {
     public class Pedreizor : IPedreizor
     {

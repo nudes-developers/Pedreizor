@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Pedreizor.Internal
+namespace Nudes.Pedreizor.Internal
 {
     public static class OperationalSystem
     {
