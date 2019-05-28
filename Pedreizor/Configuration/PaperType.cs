@@ -1,6 +1,6 @@
 ﻿namespace Nudes.Pedreizor.Configuration
 {
-    public static class PapersType
+    public static class PaperType
     {
         /// <summary>
         /// Paper with 420 x 594 mm and margin of 10mm

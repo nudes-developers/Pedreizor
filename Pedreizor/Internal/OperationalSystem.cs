@@ -1,8 +1,9 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 
 namespace Nudes.Pedreizor.Internal
 {
-    public static class OperationalSystem
+    internal static class OperationalSystem
     {
         public static bool IsWindows() =>
             RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
@@ -15,11 +16,13 @@ namespace Nudes.Pedreizor.Internal
 
         public static string GetLibExtension()
         {
+            if (IsWindows()) return "dll";
+
             if (IsLinux()) return "so";
 
             if (IsMacOS()) return "dylib";
 
-            return "dll";
+            throw new NotImplementedException("Invalid operational system, this library works only for distributions windows, linux and macOS");
         }
     }
 }

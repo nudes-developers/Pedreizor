@@ -14,17 +14,15 @@ namespace Nudes.Pedreizor
         private readonly IConverter converter;
         private readonly IRazorRenderer razorRenderer;
 
-        public Pedreizor(IRazorRenderer razorRenderer)
+        public Pedreizor(IRazorRenderer razorRenderer, PedreizorOptions options)
         {
             this.converter = ConverterContainer.Instance;
             this.razorRenderer = razorRenderer;
+            this.Options = options;
         }
 
-        public virtual string Title { get; set; }
-        public virtual Paper Paper { get; set; }
-        public virtual bool PageCounterVisible { get; set; }
-        public virtual PageNumberPosition PageCounterPosition { get; set; }
-
+        public PedreizorOptions Options { get; set; }
+        
         public async Task<Stream> Pdfy(string htmlContent)
         {
             var stream = new MemoryStream();
@@ -55,9 +53,9 @@ namespace Nudes.Pedreizor
             {
                 GlobalSettings = new GlobalSettings
                 {
-                    DocumentTitle = Title,
-                    PaperSize = new PechkinPaperSize(Paper.Width.ToString(), Paper.Height.ToString()),
-                    Margins = new MarginSettings(Paper.Margin.Top, Paper.Margin.Right, Paper.Margin.Bottom, Paper.Margin.Left),
+                    DocumentTitle = Options.Title,
+                    PaperSize = new PechkinPaperSize(Options.Paper.Width.ToString(), Options.Paper.Height.ToString()),
+                    Margins = new MarginSettings(Options.Paper.Margin.Top, Options.Paper.Margin.Right, Options.Paper.Margin.Bottom, Options.Paper.Margin.Left),
                 },
                 Objects = {
                    this.GeneratePdfObjectSettings(htmlContent)
@@ -92,8 +90,8 @@ namespace Nudes.Pedreizor
                 HtmlContent = htmlContent
             };
 
-            if (this.PageCounterVisible)
-                switch (this.PageCounterPosition)
+            if (Options.PageCounterVisible)
+                switch (Options.PageCounterPosition)
                 {
                     case PageNumberPosition.Left:
                         settings.FooterSettings = new FooterSettings

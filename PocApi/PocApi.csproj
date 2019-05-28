@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -12,6 +12,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Pedreizor\Pedreizor.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Template\" />
   </ItemGroup>
 
 </Project>

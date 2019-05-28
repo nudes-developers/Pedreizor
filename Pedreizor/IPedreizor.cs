@@ -7,25 +7,7 @@ namespace Nudes.Pedreizor
 {
     public interface IPedreizor
     {
-        /// <summary>
-        /// Document title
-        /// </summary>
-        string Title { get; set; }
-
-        /// <summary>
-        /// Document paper
-        /// </summary>
-        Paper Paper { get; set; }
-
-        /// <summary>
-        /// Show the page counter on footer
-        /// </summary>
-        bool PageCounterVisible { get; set; }
-
-        /// <summary>
-        /// Localization of page counter
-        /// </summary>
-        PageNumberPosition PageCounterPosition { get; set; }
+        PedreizorOptions Options { get; set; }
 
         /// <summary>
         /// Converts a html string to a pdf and stores it in a new stream
@@ -67,7 +49,7 @@ namespace Nudes.Pedreizor
         /// <param name="streamOwner">Close the stream on complete</param>
         /// <returns></returns>
         Task PdfyTo(Uri razorPath, Stream stream, bool streamOwner = false);
-        
+
         /// <summary>
         /// Converts a razor to a pdf and stores it in an existent stream
         /// </summary>

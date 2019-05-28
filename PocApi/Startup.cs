@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Nudes.Pedreizor;
 using Nudes.Pedreizor.Configuration;
-using Nudes.Pedreizor.RazorRenderer;
-using PocApi.Template;
 
 namespace PocApi
 {
@@ -17,17 +15,11 @@ namespace PocApi
             services.AddMvc()
                 .AddRazorRenderer();
 
-            PedreizorExtensions.LoadWebkitLibrary();
-
-            services.AddTransient<IPedreizor, Pedreizor>(service => new Pedreizor(service.GetService<IRazorRenderer>())
+            services.AddPedreizor(() => new PedreizorOptions
             {
-                Title = "Doc title",
-                Paper = PapersType.A3,
-                PageCounterPosition = PageNumberPosition.Left,
-                PageCounterVisible = true
+                PageCounterPosition = PageNumberPosition.Center,
+                PageCounterVisible = true,
             });
-            services.AddTransient<ContractTemplate>();
-            services.AddTransient<ContractTemplate2>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
