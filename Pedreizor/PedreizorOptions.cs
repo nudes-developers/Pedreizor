@@ -7,6 +7,6 @@ namespace Nudes.Pedreizor
         public virtual string Title { get; set; } = string.Empty;
         public virtual Paper Paper { get; set; } = PaperType.A4;
         public virtual bool PageCounterVisible { get; set; } = false;
-        public virtual PageNumberPosition PageCounterPosition { get; set; } = PageNumberPosition.Left;
+        public virtual PageNumberPosition PageCounterPosition { get; set; } = PageNumberPosition.FooterCenter;
     }
 }

@@ -2,8 +2,11 @@
 {
     public enum PageNumberPosition
     {
-        Left,
-        Center,
-        Right
+        FooterLeft,
+        FooterCenter,
+        FooterRight,
+        HeaderLeft,
+        HeaderCenter,
+        HeaderRight
     }
 }

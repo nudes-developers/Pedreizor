@@ -3,7 +3,6 @@ using Nudes.Pedreizor.Internal;
 using Nudes.Pedreizor.RazorRenderer;
 using System;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 
 namespace Nudes.Pedreizor

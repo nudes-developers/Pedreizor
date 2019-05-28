@@ -34,10 +34,7 @@ namespace PocApi.Controllers
         {
             var mem = new MemoryStream();
 
-            await pedreizorOriginal.PdfyTo(new Uri("/Controllers/Index.cshtml", UriKind.Relative), mem, new TestModel
-            {
-                Name = "Teste GET 2"
-            });
+            await pedreizorOriginal.PdfyTo(new Uri("/Controllers/Index.cshtml", UriKind.Relative), mem);
 
             return new FileContentResult(mem.ToArray(), "application/pdf");
         }
@@ -47,7 +44,10 @@ namespace PocApi.Controllers
         {
             var mem = new MemoryStream();
 
-            await pedreizorOriginal.PdfyTo(new Uri("/Controllers/Index.cshtml", UriKind.Relative), mem);
+            await pedreizorOriginal.PdfyTo<TestModel>(new Uri("/Controllers/Index.cshtml", UriKind.Relative), mem, new TestModel
+            {
+                Name = "Teste"
+            });
 
             return new FileContentResult(mem.ToArray(), "application/pdf");
         }

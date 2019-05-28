@@ -5,6 +5,7 @@ using Nudes.Pedreizor.Internal;
 using Nudes.Pedreizor.RazorRenderer;
 using System;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Nudes.Pedreizor
@@ -22,7 +23,7 @@ namespace Nudes.Pedreizor
         }
 
         public PedreizorOptions Options { get; set; }
-        
+
         public async Task<Stream> Pdfy(string htmlContent)
         {
             var stream = new MemoryStream();
@@ -53,7 +54,7 @@ namespace Nudes.Pedreizor
             {
                 GlobalSettings = new GlobalSettings
                 {
-                    DocumentTitle = Options.Title,
+                    DocumentTitle = Options.Title,                    
                     PaperSize = new PechkinPaperSize(Options.Paper.Width.ToString(), Options.Paper.Height.ToString()),
                     Margins = new MarginSettings(Options.Paper.Margin.Top, Options.Paper.Margin.Right, Options.Paper.Margin.Bottom, Options.Paper.Margin.Left),
                 },
@@ -87,26 +88,50 @@ namespace Nudes.Pedreizor
         {
             var settings = new ObjectSettings
             {
-                HtmlContent = htmlContent
+                HtmlContent = htmlContent,
+                WebSettings = new WebSettings
+                {
+                    DefaultEncoding = Encoding.UTF8.WebName,
+                    EnableJavascript = false,
+                },
             };
 
             if (Options.PageCounterVisible)
                 switch (Options.PageCounterPosition)
                 {
-                    case PageNumberPosition.Left:
+                    case PageNumberPosition.FooterLeft:
                         settings.FooterSettings = new FooterSettings
                         {
                             Left = "[page]"
                         };
                         break;
-                    case PageNumberPosition.Center:
+                    case PageNumberPosition.FooterCenter:
                         settings.FooterSettings = new FooterSettings
                         {
                             Center = "[page]"
                         };
                         break;
-                    case PageNumberPosition.Right:
+                    case PageNumberPosition.FooterRight:
                         settings.FooterSettings = new FooterSettings
+                        {
+                            Right = "[page]"
+                        };
+                        break;
+                    case PageNumberPosition.HeaderLeft:
+                        settings.HeaderSettings = new HeaderSettings
+                        {
+                            Left = "[page]"
+                        };
+                        break;
+
+                    case PageNumberPosition.HeaderCenter:
+                        settings.HeaderSettings = new HeaderSettings
+                        {
+                            Center = "[page]"
+                        };
+                        break;
+                    case PageNumberPosition.HeaderRight:
+                        settings.HeaderSettings = new HeaderSettings
                         {
                             Right = "[page]"
                         };

@@ -17,7 +17,7 @@ namespace PocApi
 
             services.AddPedreizor(() => new PedreizorOptions
             {
-                PageCounterPosition = PageNumberPosition.Center,
+                PageCounterPosition = PageNumberPosition.HeaderCenter,
                 PageCounterVisible = true,
             });
         }
