@@ -2,7 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AssemblyName>Pedreizor</AssemblyName>    
+    <PackageId>Nudes.Pedreizor</PackageId>
+    <Version>0.2.0</Version>
+    <Company>NUDES - SENAI</Company>
+    <IsPackable>true</IsPackable>
+    <PackageTags>pdf, razor, cshtml</PackageTags>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <AssemblyName>Pedreizor</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

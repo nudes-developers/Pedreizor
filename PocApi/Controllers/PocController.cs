@@ -10,46 +10,44 @@ namespace PocApi.Controllers
     [Route("api/[controller]")]
     public class PocController : Controller
     {
-        private readonly IPedreizor pedreizorOriginal;
+        private readonly IRazorRenderer razorRenderer;
+        private readonly IPedreizor pedreizor;
 
-        public PocController(IRazorRenderer razorRenderer, IPedreizor pedreizor)
+        public PocController(IPedreizor pedreizor)
         {
-            pedreizorOriginal = pedreizor;
+            this.pedreizor = pedreizor;
         }
 
         public async Task<IActionResult> Get()
         {
-            var mem = new MemoryStream();
+            MemoryStream stream = new MemoryStream();
 
-            await pedreizorOriginal.PdfyTo(new Uri("/Controllers/Index.cshtml", UriKind.Relative), mem, new TestModel
-            {
-                Name = "Teste GET 1"
-            });
-            
-            return new FileContentResult(mem.ToArray(), "application/pdf");
+            await pedreizor.PdfyTo(new Uri("/Template/Index.cshtml", UriKind.Relative), stream);
+
+            return new FileContentResult(stream.ToArray(), "application/pdf");
         }
 
-        [Route("2")]
-        public async Task<IActionResult> Get2()
-        {
-            var mem = new MemoryStream();
+        //[Route("2")]
+        //public async Task<IActionResult> Get2()
+        //{
+        //    var mem = new MemoryStream();
 
-            await pedreizorOriginal.PdfyTo(new Uri("/Controllers/Index.cshtml", UriKind.Relative), mem);
+        //    await pedreizorOriginal.PdfyTo(new Uri("/Controllers/Index.cshtml", UriKind.Relative), mem);
 
-            return new FileContentResult(mem.ToArray(), "application/pdf");
-        }
+        //    return new FileContentResult(mem.ToArray(), "application/pdf");
+        //}
 
-        [Route("3")]
-        public async Task<IActionResult> Get3()
-        {
-            var mem = new MemoryStream();
+        //[Route("3")]
+        //public async Task<IActionResult> Get3()
+        //{
+        //    var mem = new MemoryStream();
 
-            await pedreizorOriginal.PdfyTo<TestModel>(new Uri("/Controllers/Index.cshtml", UriKind.Relative), mem, new TestModel
-            {
-                Name = "Teste"
-            });
+        //    await pedreizorOriginal.PdfyTo<TestModel>(new Uri("/Controllers/Index.cshtml", UriKind.Relative), mem, new TestModel
+        //    {
+        //        Name = "Teste"
+        //    });
 
-            return new FileContentResult(mem.ToArray(), "application/pdf");
-        }
+        //    return new FileContentResult(mem.ToArray(), "application/pdf");
+        //}
     }
 }

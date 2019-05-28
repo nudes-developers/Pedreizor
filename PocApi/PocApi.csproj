@@ -14,8 +14,4 @@
     <ProjectReference Include="..\Pedreizor\Pedreizor.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Template\" />
-  </ItemGroup>
-
 </Project>

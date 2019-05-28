@@ -12,13 +12,13 @@ namespace PocApi
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc()
-                .AddRazorRenderer();
+            services.AddMvc().AddRazorRenderer();
 
-            services.AddPedreizor(() => new PedreizorOptions
+            services.AddPedreizor(()=> new PedreizorOptions
             {
-                PageCounterPosition = PageNumberPosition.HeaderCenter,
                 PageCounterVisible = true,
+                PageCounterPosition = PageNumberPosition.FooterRight,
+                Paper = PaperType.A4
             });
         }
 
