@@ -9,7 +9,7 @@ This library is made up of a Razor to html converter and an html to pdf converte
 Pedreizor can be installed using the Nuget package manager or the dotnet CLI
 
 ~~~
-Install-Package FluentValidation
+Install-Package Pedreizor
 ~~~
 
 ## Razor renderer
