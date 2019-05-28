@@ -4,7 +4,7 @@ A friendly converter of razor templates for pdf in aspnetcore environment
 
 This library is made up of a Razor to html converter and an html to pdf converter using the [DinkToPdf](https://github.com/rdvojmoc/DinkToPdf) library as a dependency, which in turn uses the webkit pdf renderer
 
-##Get Started
+## Get Started
 
 Pedreizor can be installed using the Nuget package manager or the dotnet CLI
 
@@ -12,7 +12,7 @@ Pedreizor can be installed using the Nuget package manager or the dotnet CLI
 Install-Package FluentValidation
 ~~~
 
-##Razor renderer
+## Razor renderer
 
 The part responsible for transforming razor files into html strings is an instance that implements the IRazorRenderer interface and can be used by dependency injection as follows
 
