@@ -51,7 +51,7 @@ private async Task<string> RenderingWithModel()
 }
 ~~~
 
-##Pedreizor
+## Pedreizor
 
 The part responsible for converting the html strings into pdf is the responsibility of Pedreizor, and can be configured and used as follows
 
