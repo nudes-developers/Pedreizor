@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageId>Nudes.Pedreizor</PackageId>
     <Version>0.3.0</Version>
     <Company>NUDES - SENAI</Company>
@@ -16,33 +16,39 @@
   <ItemGroup>
     <Content Include="Libs\x64\libwkhtmltox.dll">
       <Pack>true</Pack>
-      <PackagePath>lib\netcoreapp2.2\Libs\x64</PackagePath>
+      <CopyToPublishDirectory>true</CopyToPublishDirectory>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <PackagePath>lib\netcoreapp3.1\Libs\x64</PackagePath>
     </Content>
     <Content Include="Libs\x64\libwkhtmltox.dylib">
       <Pack>true</Pack>
-      <PackagePath>lib\netcoreapp2.2\Libs\x64</PackagePath>
+      <CopyToPublishDirectory>true</CopyToPublishDirectory>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <PackagePath>lib\netcoreapp3.1\Libs\x64</PackagePath>
     </Content>
     <Content Include="Libs\x64\libwkhtmltox.so">
       <Pack>true</Pack>
-      <PackagePath>lib\netcoreapp2.2\Libs\x64</PackagePath>
+      <CopyToPublishDirectory>true</CopyToPublishDirectory>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <PackagePath>lib\netcoreapp3.1\Libs\x64</PackagePath>
     </Content>
     <Content Include="Libs\x86\libwkhtmltox.dll">
       <Pack>true</Pack>
-      <PackagePath>lib\netcoreapp2.2\Libs\x86</PackagePath>
+      <CopyToPublishDirectory>true</CopyToPublishDirectory>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <PackagePath>lib\netcoreapp3.1\Libs\x86</PackagePath>
     </Content>
     <Content Include="Libs\x86\libwkhtmltox.dylib">
       <Pack>true</Pack>
-      <PackagePath>lib\netcoreapp2.2\Libs\x86</PackagePath>
+      <CopyToPublishDirectory>true</CopyToPublishDirectory>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <PackagePath>lib\netcoreapp3.1\Libs\x86</PackagePath>
     </Content>
     <Content Include="Libs\x86\libwkhtmltox.so">
       <Pack>true</Pack>
-      <PackagePath>lib\netcoreapp2.2\Libs\x86</PackagePath>
+      <CopyToPublishDirectory>true</CopyToPublishDirectory>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <PackagePath>lib\netcoreapp3.1\Libs\x86</PackagePath>
     </Content>
   </ItemGroup>
 
@@ -52,8 +58,7 @@
 
   <ItemGroup>
     <PackageReference Include="DinkToPdf" Version="1.0.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.0" />
   </ItemGroup>
 
 </Project>

@@ -16,7 +16,7 @@
         /// Paper with 210 x 297 mm and margin of 10mm
         /// </summary>
         public static Paper A4 => new Paper { Width = 210, Height = 297, Margin = new Margin(10) };
-        
+
         /// <summary>
         /// Paper with 148 x 210 mm and margin of 10mm
         /// </summary>

@@ -1,0 +1,6 @@
+{
+  "http": {
+    "routePrefix": "function"
+  },
+  "version": "2.0"
+}

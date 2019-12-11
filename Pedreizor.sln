@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.28917.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pedreizor", "Pedreizor\Pedreizor.csproj", "{CF890C84-8D53-4596-A0ED-4E3E3CD99A16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocApi", "PocApi\PocApi.csproj", "{B9B3F301-6BCC-4144-8109-FA1BED5D930C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PocApi", "PocApi\PocApi.csproj", "{B9B3F301-6BCC-4144-8109-FA1BED5D930C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PedreizorFunction", "PedreizorFunction\PedreizorFunction.csproj", "{8AC90BB8-1ABF-45A0-8AC4-4BBB5D1805CF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorRenderer", "RazorRenderer\RazorRenderer.csproj", "{F3064E30-E361-4737-B1ED-47BAAD9412F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{B9B3F301-6BCC-4144-8109-FA1BED5D930C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9B3F301-6BCC-4144-8109-FA1BED5D930C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9B3F301-6BCC-4144-8109-FA1BED5D930C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AC90BB8-1ABF-45A0-8AC4-4BBB5D1805CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AC90BB8-1ABF-45A0-8AC4-4BBB5D1805CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AC90BB8-1ABF-45A0-8AC4-4BBB5D1805CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AC90BB8-1ABF-45A0-8AC4-4BBB5D1805CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3064E30-E361-4737-B1ED-47BAAD9412F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3064E30-E361-4737-B1ED-47BAAD9412F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3064E30-E361-4737-B1ED-47BAAD9412F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3064E30-E361-4737-B1ED-47BAAD9412F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
