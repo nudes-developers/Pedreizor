@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Nudes.Pedreizor;
-using Nudes.Pedreizor.RazorRenderer;
+using Nudes.RazorRenderer;
 using System;
 using System.IO;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace PocApi.Controllers
@@ -11,43 +15,61 @@ namespace PocApi.Controllers
     public class PocController : Controller
     {
         private readonly IRazorRenderer razorRenderer;
+        private readonly string azureFunctionUri;
         private readonly IPedreizor pedreizor;
 
-        public PocController(IPedreizor pedreizor)
+        public PocController(IPedreizor pedreizor, IRazorRenderer razorRenderer, IConfiguration configuration)
         {
+            this.azureFunctionUri = configuration["PdfFunction:Uri"];
             this.pedreizor = pedreizor;
+            this.razorRenderer = razorRenderer;
         }
 
-        public async Task<IActionResult> Get()
+        [HttpGet("1")]
+        public async Task<IActionResult> RenderTemplateAndPdfyWithPedreizorToMemoryStreamAlreadyExistent()
         {
             MemoryStream stream = new MemoryStream();
 
-            await pedreizor.PdfyTo(new Uri("/Template/Index.cshtml", UriKind.Relative), stream);
+            var htmlText = await razorRenderer.Render(new Uri("/Template/Index.cshtml", UriKind.Relative));
+
+            await pedreizor.PdfyTo(htmlText, stream);
 
             return new FileContentResult(stream.ToArray(), "application/pdf");
         }
 
-        //[Route("2")]
-        //public async Task<IActionResult> Get2()
-        //{
-        //    var mem = new MemoryStream();
+        [HttpGet("2")]
+        public async Task<IActionResult> RenderTemplateAndPdfyWithPedreizorToStreamReturn()
+        {
+            var htmlText = await razorRenderer.Render(new Uri("/Template/Index.cshtml", UriKind.Relative));
 
-        //    await pedreizorOriginal.PdfyTo(new Uri("/Controllers/Index.cshtml", UriKind.Relative), mem);
+            var stream = await pedreizor.Pdfy(htmlText);
 
-        //    return new FileContentResult(mem.ToArray(), "application/pdf");
-        //}
+            var memory = new MemoryStream();
+            await stream.CopyToAsync(memory);
 
-        //[Route("3")]
-        //public async Task<IActionResult> Get3()
-        //{
-        //    var mem = new MemoryStream();
+            return new FileContentResult(memory.ToArray(), "application/pdf");
+        }
 
-        //    await pedreizorOriginal.PdfyTo<TestModel>(new Uri("/Controllers/Index.cshtml", UriKind.Relative), mem, new TestModel
-        //    {
-        //        Name = "Teste"
-        //    });
+        [HttpGet("3")]
+        public async Task<IActionResult> RenderTemplateAndPdfyWithAzureFunctions()
+        {
+            var htmlText = await razorRenderer.Render(new Uri("/Template/Index.cshtml", UriKind.Relative));
 
-        //    return new FileContentResult(mem.ToArray(), "application/pdf");
-        //}
+            var contentStream = new StreamContent(new MemoryStream(Encoding.UTF8.GetBytes(htmlText)));
+            contentStream.Headers.ContentType = new MediaTypeHeaderValue("text/html");
+
+            using var client = new HttpClient();
+            using var content = new MultipartFormDataContent
+            {
+                { contentStream, "file", "file.html" }
+            };
+            using var response = await client.PostAsync($"{azureFunctionUri}", content);
+
+            if (!response.IsSuccessStatusCode) return BadRequest();
+
+            var bytes = await response.Content.ReadAsByteArrayAsync();
+
+            return new FileContentResult(bytes, "application/pdf");
+        }
     }
 }

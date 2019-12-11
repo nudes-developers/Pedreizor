@@ -10,7 +10,7 @@ namespace Nudes.RazorRenderer
         /// <param name="builder">Instance of IMvcCoreBuilder</param>
         public static IMvcCoreBuilder AddRazorRenderer(this IMvcCoreBuilder builder)
         {
-            builder.Services.AddTransient<IRazorRenderer, IRazorRenderer>();
+            builder.Services.AddTransient<IRazorRenderer, RazorRenderer>();
 
             return builder;
         }
@@ -21,7 +21,7 @@ namespace Nudes.RazorRenderer
         /// <param name="builder">Instance of IMvcBuilder</param>
         public static IMvcBuilder AddRazorRenderer(this IMvcBuilder builder)
         {
-            builder.Services.AddTransient<IRazorRenderer, IRazorRenderer>();
+            builder.Services.AddTransient<IRazorRenderer, RazorRenderer>();
 
             return builder;
         }

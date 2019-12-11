@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Extensions.Logging;
 using Nudes.Pedreizor;
 using System.Collections.Generic;
 using System.IO;
@@ -25,8 +24,7 @@ namespace PedreizorFunction
         };
 
         [FunctionName("GeneratePDF")]
-        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "generatePDF")]
-                                                     HttpRequest request, ILogger logger)
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "POST", Route = "generatePDF")] HttpRequest request)
         {
             var file = request.Form.Files.FirstOrDefault();
 

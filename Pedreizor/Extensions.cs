@@ -19,8 +19,9 @@ namespace Nudes.Pedreizor
 
                 var directoryInfo = new DirectoryInfo(Directory.GetCurrentDirectory());
 
-                var fileNames = directoryInfo.GetFiles($"Libs\\{size}\\libwkhtmltox.{OperationalSystem.GetLibExtension()}", SearchOption.AllDirectories)
-                                             .Select(d => d.FullName);
+                var fileNames = directoryInfo.GetFiles($"libwkhtmltox.{OperationalSystem.GetLibExtension()}", SearchOption.AllDirectories)
+                                             .Select(d => d.FullName)
+                                             .Where(d => d.Contains(size));
 
                 if (!fileNames.Any()) throw new Exception("Could not find Webkit library");
 
