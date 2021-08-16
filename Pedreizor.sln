@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28917.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pedreizor", "Pedreizor\Pedreizor.csproj", "{CF890C84-8D53-4596-A0ED-4E3E3CD99A16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocApi", "PocApi\PocApi.csproj", "{B9B3F301-6BCC-4144-8109-FA1BED5D930C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PocApi", "PocApi\PocApi.csproj", "{B9B3F301-6BCC-4144-8109-FA1BED5D930C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

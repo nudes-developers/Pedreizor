@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <PackageId>Nudes.Pedreizor</PackageId>
     <Version>0.3.0</Version>
     <Company>NUDES - SENAI</Company>
@@ -11,37 +11,40 @@
     <AssemblyName>Pedreizor</AssemblyName>
     <AssemblyVersion>0.3.0.0</AssemblyVersion>
     <FileVersion>0.3.0.0</FileVersion>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
     <Content Include="Libs\x64\libwkhtmltox.dll">
       <Pack>true</Pack>
-      <PackagePath>lib\netcoreapp2.2\Libs\x64</PackagePath>
+      <PackagePath>lib\net5.0\Libs\x64</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Libs\x64\libwkhtmltox.dylib">
       <Pack>true</Pack>
-      <PackagePath>lib\netcoreapp2.2\Libs\x64</PackagePath>
+      <PackagePath>lib\net5.0\Libs\x64</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Libs\x64\libwkhtmltox.so">
       <Pack>true</Pack>
-      <PackagePath>lib\netcoreapp2.2\Libs\x64</PackagePath>
+      <PackagePath>lib\net5.0\Libs\x64</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Libs\x86\libwkhtmltox.dll">
       <Pack>true</Pack>
-      <PackagePath>lib\netcoreapp2.2\Libs\x86</PackagePath>
+      <PackagePath>lib\net5.0\Libs\x86</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Libs\x86\libwkhtmltox.dylib">
       <Pack>true</Pack>
-      <PackagePath>lib\netcoreapp2.2\Libs\x86</PackagePath>
+      <PackagePath>lib\net5.0\Libs\x86</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Libs\x86\libwkhtmltox.so">
       <Pack>true</Pack>
-      <PackagePath>lib\netcoreapp2.2\Libs\x86</PackagePath>
+      <PackagePath>lib\net5.0\Libs\x86</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -52,8 +55,8 @@
 
   <ItemGroup>
     <PackageReference Include="DinkToPdf" Version="1.0.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Language" Version="5.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
   </ItemGroup>
 
 </Project>
