@@ -41,6 +41,15 @@ namespace Nudes.Pedreizor
                 var size = IntPtr.Size == 4 ? "x86" : "x64";
                 var assembly = Assembly.GetExecutingAssembly();
                 string _path = Path.Combine(assembly.Location.Replace($"{assembly.GetName().Name}.dll", ""), $"Libs\\{size}\\libwkhtmltox.{OperationalSystem.GetLibExtension()}");
+                FileInfo fi = new FileInfo(_path);
+                if(!fi.Exists)
+                {
+                    if (!fi.Directory.Exists)
+                        fi.Directory.Create();
+                    using var libStream = assembly.GetManifestResourceStream($"Pedreizor.Libs.{size}.libwkhtmltox.{OperationalSystem.GetLibExtension()}");
+                    using var fileStream = new FileStream(_path, FileMode.Create);
+                    libStream.CopyTo(fileStream);
+                }
                 new CustomAssemblyLoadContext().LoadUnmanagedLibrary(_path);
                 ConverterContainer.LibrariesAlreadyLoaded = true;
             }

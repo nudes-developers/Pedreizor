@@ -59,7 +59,7 @@ namespace Nudes.Pedreizor.RazorRenderer
 
             if (findViewResult.Success) return findViewResult.View;
 
-            throw new InvalidOperationException($"Unable to find view '{viewPath}'. The following locations were searched:");
+            throw new InvalidOperationException($"Unable to find view '{viewPath}'. The following locations were searched: {string.Join("\n", findViewResult.SearchedLocations)}");
         }
 
         private ActionContext GetEmptyActionContext()
