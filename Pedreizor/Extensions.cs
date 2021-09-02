@@ -40,9 +40,9 @@ namespace Nudes.Pedreizor
             {
                 var size = IntPtr.Size == 4 ? "x86" : "x64";
                 var assembly = Assembly.GetExecutingAssembly();
-                string _path = Path.Combine(assembly.Location.Replace($"{assembly.GetName().Name}.dll", ""), $"Libs\\{size}\\libwkhtmltox.{OperationalSystem.GetLibExtension()}");
+                string _path = Path.Combine(assembly.Location.Replace($"{assembly.GetName().Name}.dll", ""), "Libs", "{size}", $"libwkhtmltox.{OperationalSystem.GetLibExtension()}");
                 FileInfo fi = new FileInfo(_path);
-                if(!fi.Exists)
+                if (!fi.Exists)
                 {
                     if (!fi.Directory.Exists)
                         fi.Directory.Create();
@@ -83,7 +83,7 @@ namespace Nudes.Pedreizor
         /// <param name="services">The service collection</param>
         /// <param name="config">Generating function of configuration</param>
         /// <returns>Updated service collection</returns>
-        public static IServiceCollection AddPedreizor(this IServiceCollection services, Func<PedreizorOptions> config) 
+        public static IServiceCollection AddPedreizor(this IServiceCollection services, Func<PedreizorOptions> config)
             => AddPedreizor(services, config());
     }
 }
